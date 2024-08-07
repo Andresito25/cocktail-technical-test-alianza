@@ -18,9 +18,9 @@
 
 <body class="font-sans text-gray-900 antialiased">
   <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-    <div>
-      <a href="/">
-        <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+    <div class="shrink-0 flex items-center">
+      <a href="{{ route('dashboard') }}">
+        <img class="rounded-md" src="{{ URL::asset('img/favicon.png') }}" alt="log" width="100" height="50">
       </a>
     </div>
 

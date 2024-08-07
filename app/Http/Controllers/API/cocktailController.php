@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
 use App\Models\Cocktail;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class cocktailController extends Controller
 {
@@ -26,7 +26,9 @@ class cocktailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cocktail = new Cocktail($request->all());
+        $cocktail->save();
+        return response()->json(['coctail' => $cocktail], 201);
     }
 
     /**
@@ -34,7 +36,9 @@ class cocktailController extends Controller
      */
     public function show(string $id)
     {
-        return view('cocktails', [$id]);
+        $cocktail = DB::table('cocktails')->find($id);
+
+        return view('cocktails', compact('cocktail'));
     }
 
     /**

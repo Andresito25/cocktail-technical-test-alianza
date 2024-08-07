@@ -16,6 +16,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/cocktails/{$id}', [cocktailController::class, 'show'])->middleware(['auth', 'verified'])->name('cocktails/{$id}');
+Route::get('/cocktail/{id}', [cocktailController::class, 'show'])->middleware(['auth', 'verified'])->name('cocktail/{id}');
+
+Route::post('/coctail/{id}', [cocktailController::class, 'store'])->middleware(['auth', 'verified']);
 
 require __DIR__ . '/auth.php';

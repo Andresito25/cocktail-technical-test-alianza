@@ -10,20 +10,15 @@
             @foreach ($cocktails as $cocktail)
               <div
                 class="flex flex-col gap-5 border-2 border-green-600 rounded-lg h-max p-7 hover:shadow-lg hover:shadow-green-600 hover:translate-y-1 transition ease-in-out delay-150">
-                <h1 class="text-wrap text-3xl">{{ $cocktail['name'] }}</h1>
+                <h2 class="text-wrap text-3xl">{{ $cocktail['name'] }}</h2>
 
                 <img class="rounded-lg" src="{{ $cocktail['image'] }}" alt="cocktail">
 
                 <p class="text-sm overflow-hidden truncate hover:text-balance transition ease-in-out delay-1000">
                   {{ $cocktail['preparation'] }}</p>
 
-                <a
-                  class="border-2 border-purple-700 p-3 rounded-lg text-slate-400 text-base  hover:bg-purple-500 hover:shadow-md hover:shadow-purple-500 hover:text-white cursor-pointer">
-                  Guardar
-                </a>
-
                 <a class="border-2 border-green-700 p-3 rounded-lg text-slate-400 text-base  hover:bg-green-500 hover:shadow-md hover:shadow-green-500 hover:text-black cursor-pointer"
-                  href="{{ route('cocktails/{$id}', [$cocktail['id']]) }}">
+                  href="{{ route('cocktail/{id}', [$cocktail['id']]) }}">
                   Ver cóctel
                 </a>
               </div>
